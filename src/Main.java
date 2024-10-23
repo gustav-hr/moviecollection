@@ -6,17 +6,47 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         MovieCollection movieList = new MovieCollection();
 
-        String title = scanner.nextLine();
-        String director = scanner.nextLine();
-        int yearCreated = scanner.nextInt();
-        boolean isInColor = scanner.nextBoolean();
-        int lengthInMinutes = scanner.nextInt();
-        String genre = scanner.next();
-        System.out.println(movieList);
-        movieList.addMovie(title,director,yearCreated,isInColor,lengthInMinutes,genre);
+
+        System.out.println("Welcome to your movie collection");
+        System.out.println("To add a movie type: add");
+        System.out.println("To exit the program type: exit");
 
 
-        System.out.println(movieList);
+        String userInput = "";
+        while (userInput != "exit") {
+            userInput = scanner.next();
+            switch (userInput) {
+
+                case "add" -> {
+                    System.out.print("Title: ");
+                    String title = scanner.next();
+                    System.out.print("Director: ");
+                    String director = scanner.next();
+                    System.out.print("Year: ");
+                    int yearCreated = scanner.nextInt();
+                    System.out.print("Is the movie in color: ");
+                    boolean isInColor = scanner.nextBoolean();
+                    System.out.print("Length in minutes: ");
+                    int lengthInMinutes = scanner.nextInt();
+                    System.out.print("Genre: ");
+                    String genre = scanner.next();
+                    movieList.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
+                }
+                case "exit" -> {
+                    System.exit(0);
+                    scanner.close();
+
+                }
+                default -> {
+                    System.out.println("Invalid input");
+                }
+
+
+            }
+            System.out.println("\n" + movieList);
+            System.out.println("\n" + "To add a movie type: add");
+            System.out.println("To exit the program type: exit");
+        }
     }
 }
 
