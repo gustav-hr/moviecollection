@@ -15,7 +15,7 @@ public class Main {
 
         String userInput = "";
         while (!userInput.equalsIgnoreCase("exit")) {
-            userInput = scanner.next();
+            userInput = scanner.next().toLowerCase();
             switch (userInput) {
 
                 case "add" -> {
@@ -55,9 +55,9 @@ public class Main {
 
             }
             //System.out.println("\n" + controller.seeMoviesAdded());
-            System.out.println("\n" + "To add a movie type: add");
-            System.out.println("To exit the program type: exit");
-            System.out.println("To see list of movies type: moviecollection");
+            System.out.println("\nTo add a movie type: add");
+            System.out.println("\nTo exit the program type: exit");
+            System.out.println("\nTo see list of movies type: moviecollection");
         }
     }
 }
