@@ -12,6 +12,19 @@ public class MovieCollection {
         return movieList;
     }
 
+//    @Override
+//    public String toString(){
+//        String allMovies = "";
+//        for (Movie movie : movieList){
+//            allMovies += "Title: " + movie.getTitle()
+//                    + "\nDirector: " + movie.getDirector()
+//                    + "\nYear created: " + movie.getYearCreated()
+//                    + "\nIs in color? : " + movie.getIsInColor()
+//                    + "\nLength in minutes: " + movie.getLengthInMinutes()
+//                    + "\nGenre: " + movie.getGenre();
+//        }
+//        return allMovies;
+//    }
     public void searchMovie(String searchTitle) {
         for(Movie movie : movieList) {
             if(movie.getTitle().contains(searchTitle)) {
@@ -21,17 +34,5 @@ public class MovieCollection {
         }
 
     }
-
-    @Override
-    public String toString(){
-        for (Movie movie : movieList){
-            return "Title: " + movie.getTitle()+ "\nDirector: " + movie.getDirector()
-                    + "\nYear created: " + movie.getYearCreated() + "\nIs in color? : "
-                    + movie.getIsInColor() + "\nLength in minutes: " + movie.getLengthInMinutes() + "\nGenre: " + movie.getGenre();
-        }
-        return "";
-    }
-
-
 
 }
