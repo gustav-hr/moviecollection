@@ -23,10 +23,11 @@ public class Main {
 
                 case "add" -> {
                     System.out.print("Title: ");
-                    String title = scanner.next();
+                    scanner.nextLine();
+                    String title = scanner.nextLine();
 
                     System.out.print("Director: ");
-                    String director = scanner.next();
+                    String director = scanner.nextLine();
 
                     System.out.print("Year: ");
                     while (!scanner.hasNextInt()) {
