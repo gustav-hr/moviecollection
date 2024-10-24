@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         MovieCollection movieList = new MovieCollection();
-
+        Controller controller = new Controller(movieList);
 
         System.out.println("Welcome to your movie collection");
         System.out.println("To add a movie type: add");
@@ -13,7 +13,7 @@ public class Main {
 
 
         String userInput = "";
-        while (userInput != "exit") {
+        while (!userInput.equalsIgnoreCase("exit")) {
             userInput = scanner.next();
             switch (userInput) {
 
@@ -29,14 +29,14 @@ public class Main {
                         scanner.next();
                     }
                     int yearCreated = scanner.nextInt();
-                    
+
                     System.out.print("Is the movie in color: ");
                     String isInColor = scanner.next();
                     System.out.print("Length in minutes: ");
                     int lengthInMinutes = scanner.nextInt();
                     System.out.print("Genre: ");
                     String genre = scanner.next();
-                    movieList.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
+                    controller.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
                 }
                 case "exit" -> {
                     System.exit(0);
@@ -49,7 +49,7 @@ public class Main {
 
 
             }
-            System.out.println("\n" + movieList.getMovieList());
+            System.out.println("\n" + controller.seeMoviesAdded());
             System.out.println("\n" + "To add a movie type: add");
             System.out.println("To exit the program type: exit");
         }
