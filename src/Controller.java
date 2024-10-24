@@ -12,8 +12,18 @@ public class Controller {
         movieList.addMovie(title,director,yearCreated,isInColor,lengthInMinutes,genre);
     }
 
-    public ArrayList<Movie> seeMoviesAdded(){
-        return movieList.getMovieList();
-    }
+    public String seeMoviesAdded() {
+        if (movieList.getMovieList().isEmpty()) {
+            return "No movies in the collection.";
+        }
+        String movies = "";
+        for (Movie movie : movieList.getMovieList()) {
+            movies += movie.toString() + "\n";
+        }
+        return movies;
 
+    }
+public String helpProgram(){
+        return "\nTo add a movie type: add" + "\nTo exit the program type: exit";
+}
 }

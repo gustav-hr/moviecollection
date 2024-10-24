@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class UserInterface {
 
     private final Controller controller;
-    private final MovieCollection movieList;
+    private MovieCollection movieList;
     private final Scanner scanner;
 
     public UserInterface() {
@@ -16,32 +16,31 @@ public class UserInterface {
     public void startProgram() {
         System.out.println("Welcome to your movie collection.");
         System.out.println("To add a movie type: add.");
-        System.out.println("To exit the program type: exit.");
-        System.out.println("To see list of movies type: movie collection.");
+        System.out.println("To see your list of movies in its current state type: list.");
         System.out.println("To search for a movie in your list type: search.");
+        System.out.println("To edit a movie from your list type: edit.");
         System.out.println("If you need help, type: help.");
+        System.out.println("To exit the program type: exit.");
 
         String userInput = "";
         while (!userInput.equalsIgnoreCase("exit")) {
             userInput = scanner.next().toLowerCase();
             switch (userInput) {
                 case "add" -> addMovie();
-                case "list" -> printMovieCollection();
+                case "list" -> System.out.println(controller.seeMoviesAdded());
                 case "search" -> searchMovie();
                 case "exit" -> exitProgram();
-                case "help" -> helpProgram();
+                case "help" -> System.out.println(controller.helpProgram());
                 case "edit" -> editMovie();
                 default -> System.out.println("Invalid input");
             }
             System.out.println("\nTo add a movie type: add");
             System.out.println("To exit the program type: exit");
+            System.out.println("If you need help, type: help.");
         }
     }
 
-    private void helpProgram() {
-        System.out.println("\nTo see list of movies type: list");
-        System.out.println("To search for a movie in your list type: search");
-    }
+
 
     // Metode til at tilføje en film
     private void addMovie() {
@@ -79,11 +78,6 @@ public class UserInterface {
         System.out.println("Movie added successfully.");
     }
 
-    // Method to print all movies
-    private void printMovieCollection() {
-        System.out.println(controller.seeMoviesAdded());
-    }
-
     // Search Method
     private void searchMovie() {
         System.out.println("Enter the title of the movie you wish to search for:");
@@ -106,9 +100,9 @@ public class UserInterface {
 
 
     private void editMovie() {
-        System.out.println(movieList.getMovieList());
+        System.out.println(controller.seeMoviesAdded());
         System.out.println("Type out the title of the movie you want to edit");
-        Movie movieEdit = movieList.EditMovie(scanner.next());
+        Movie movieEdit = movieList.editMovie(scanner.next());
 
         if (movieEdit != null) {
             System.out.print("Title: ");
