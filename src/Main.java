@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -14,6 +14,7 @@ public class Main {
         System.out.println("To exit the program type: exit");
         System.out.println("To see list of movies type: moviecollection");
         System.out.println("To search for a movie in your list type: search");
+
 
         String userInput = "";
         while (!userInput.equalsIgnoreCase("exit")) {
@@ -57,7 +58,7 @@ public class Main {
                     System.out.println(controller.seeMoviesAdded());
                 }
                 case "search" -> {
-                    System.out.println("Please enter the title of the movie you want to look up");
+                    System.out.println("Enter the title of the movie you wish to search");
                     movieList.searchMovie(scanner.next());
                 }
 
@@ -71,7 +72,8 @@ public class Main {
             System.out.println("\nTo add a movie type: add");
             System.out.println("\nTo exit the program type: exit");
             System.out.println("\nTo see list of movies type: moviecollection");
-            System.out.println("\nTo search for a movie in your list type: search");
+            System.out.println("To search for a movie in your list type: search");
+
         }
     }
 }
