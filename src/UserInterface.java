@@ -30,6 +30,7 @@ public class UserInterface {
                 case "search" -> searchMovie();
                 case "exit" -> exitProgram();
                 case "help" -> helpProgram();
+                case "edit"-> editMovie();
                 default -> System.out.println("Invalid input");
             }
             System.out.println("\nTo add a movie type: add");
@@ -86,7 +87,12 @@ public class UserInterface {
         System.out.println("Enter the title of the movie you wish to search for:");
         scanner.nextLine();  // For at håndtere newline fra tidligere input
         String title = scanner.nextLine();
-        movieList.searchMovie(title);
+
+        if(title != null) {
+            movieList.searchMovie(title);
+        } else {
+            System.out.println("Movie not found, try searching again");
+        }
     }
 
     // Method for exiting program
@@ -95,4 +101,37 @@ public class UserInterface {
         scanner.close();
         System.exit(0);
     }
-}
+
+    private void editMovie() {
+        System.out.println(movieList.getMovieList());
+        System.out.println("Type out the title of the movie you want to edit");
+        Movie movieEdit = movieList.EditMovie(scanner.next());
+        if(movieEdit != null) {
+            System.out.print("Title: ");
+            movieEdit.setTitle(scanner.next());
+            System.out.println("Director: ");
+            movieEdit.setDirector(scanner.next());
+            System.out.println("year: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid year");
+                scanner.next();
+            }
+            movieEdit.setYearCreated(scanner.nextInt());
+            System.out.println("Is the movie in color (yes/no): ");
+            movieEdit.setIsInColor(scanner.next());
+            System.out.println("Length in minutes: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid time");
+                scanner.next();
+            }
+            movieEdit.setLengthInMinutes(scanner.nextInt());
+            System.out.println("Genre: ");
+            movieEdit.setGenre(scanner.next());
+        }
+        else {
+            System.out.println("Movie not found, try edit again");
+        }
+
+    }
+    }
+

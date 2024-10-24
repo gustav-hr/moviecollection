@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MovieCollection {
     private ArrayList<Movie> movieList = new ArrayList<Movie>();
@@ -33,6 +34,15 @@ public class MovieCollection {
             }
         }
 
+    }
+    public Movie EditMovie(String movieTitle) {
+        for(Movie movie : movieList) {
+            if(movie.getTitle().equalsIgnoreCase(movieTitle)) {
+                return movie;
+
+            }
+        }
+        return null;
     }
 
 }
