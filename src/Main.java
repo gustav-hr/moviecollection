@@ -43,7 +43,7 @@ public class Main {
 
 
             }
-            System.out.println("\n" + movieList);
+            System.out.println("\n" + movieList.getMovieList());
             System.out.println("\n" + "To add a movie type: add");
             System.out.println("To exit the program type: exit");
         }

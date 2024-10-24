@@ -7,6 +7,9 @@ public class MovieCollection {
         Movie movie = new Movie(title,director,yearCreated,isInColor,lengthInMinutes,genre);
         movieList.add(movie);
     }
+    public ArrayList<Movie> getMovieList() {
+        return movieList;
+    }
 
 
     @Override
