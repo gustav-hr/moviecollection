@@ -21,6 +21,7 @@ public class Main {
                 case "add" -> {
                     System.out.print("Title: ");
                     String title = scanner.next();
+
                     System.out.print("Director: ");
                     String director = scanner.next();
 
@@ -33,8 +34,14 @@ public class Main {
 
                     System.out.print("Is the movie in color: ");
                     String isInColor = scanner.next();
+
                     System.out.print("Length in minutes: ");
+                    while(!scanner.hasNextInt()) {
+                        System.out.println("invalid input. Please enter a valid time");
+                        scanner.next();
+                    }
                     int lengthInMinutes = scanner.nextInt();
+
                     System.out.print("Genre: ");
                     String genre = scanner.next();
                     controller.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
