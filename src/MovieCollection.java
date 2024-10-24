@@ -24,5 +24,14 @@ public class MovieCollection {
 //        }
 //        return allMovies;
 //    }
+    public void searchMovie(String searchTitle) {
+        for(Movie movie : movieList) {
+            if(movie.getTitle().contains(searchTitle)) {
+                System.out.println(movie);
+                break;
+            }
+        }
+
+    }
 
 }
