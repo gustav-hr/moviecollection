@@ -1,7 +1,8 @@
+
 import java.util.ArrayList;
 
 public class Controller {
-private MovieCollection movieList;
+    private MovieCollection movieList;
 
     public Controller (MovieCollection movieList){
         this.movieList=movieList;
