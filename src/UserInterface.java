@@ -14,32 +14,36 @@ public class UserInterface {
 
     // Start programmet og håndter input fra brugeren
     public void startProgram() {
-        System.out.println("Welcome to your movie collection");
-        System.out.println("To add a movie type: add");
-        System.out.println("To exit the program type: exit");
-        System.out.println("To see list of movies type: moviecollection");
-        System.out.println("To search for a movie in your list type: search");
+        System.out.println("Welcome to your movie collection.");
+        System.out.println("To add a movie type: add.");
+        System.out.println("To exit the program type: exit.");
+        System.out.println("To see list of movies type: movie collection.");
+        System.out.println("To search for a movie in your list type: search.");
+        System.out.println("If you need help, type: help.");
 
         String userInput = "";
         while (!userInput.equalsIgnoreCase("exit")) {
             userInput = scanner.next().toLowerCase();
             switch (userInput) {
                 case "add" -> addMovie();
-                case "moviecollection" -> printMovieCollection();
+                case "list" -> printMovieCollection();
                 case "search" -> searchMovie();
                 case "exit" -> exitProgram();
+                case "help" -> helpProgram();
                 default -> System.out.println("Invalid input");
             }
-
             System.out.println("\nTo add a movie type: add");
-            System.out.println("\nTo exit the program type: exit");
-            System.out.println("\nTo see list of movies type: moviecollection");
-            System.out.println("To search for a movie in your list type: search");
+            System.out.println("To exit the program type: exit");
         }
+    }
+    private void helpProgram() {
+        System.out.println("\nTo see list of movies type: list");
+        System.out.println("To search for a movie in your list type: search");
     }
 
     // Metode til at tilføje en film
     private void addMovie() {
+        System.out.println("Adding movie to your movie collection... \n");
         System.out.print("Title: ");
         scanner.nextLine();  // handle newline from earlier input
         String title = scanner.nextLine();
