@@ -29,7 +29,7 @@ public class MovieCollection {
         for(Movie movie : movieList) {
             if(movie.getTitle().contains(searchTitle)) {
                 System.out.println(movie);
-                break;
+
             }
         }
 
