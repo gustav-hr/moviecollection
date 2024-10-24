@@ -71,9 +71,8 @@ public class Movie {
     public String toString(){
         return "Title: " + getTitle() + "\nDirector: " + getDirector()
                 + "\nYear created: " + getYearCreated() + "\nIs in color? : "
-                + getIsInColor() + "\nLength in minutes: " + getLengthInMinutes() + "\nGenre: " + getGenre();
+                + getIsInColor() + "\nLength in minutes: " + getLengthInMinutes() + "\nGenre: " + getGenre()
+                + "\n ---------------------------- \n";
     }
 
 }
-
-
