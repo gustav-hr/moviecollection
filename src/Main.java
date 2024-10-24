@@ -22,10 +22,16 @@ public class Main {
                     String title = scanner.next();
                     System.out.print("Director: ");
                     String director = scanner.next();
+
                     System.out.print("Year: ");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("invalid input. Please enter a valid year");
+                        scanner.next();
+                    }
                     int yearCreated = scanner.nextInt();
+                    
                     System.out.print("Is the movie in color: ");
-                    boolean isInColor = scanner.nextBoolean();
+                    String isInColor = scanner.next();
                     System.out.print("Length in minutes: ");
                     int lengthInMinutes = scanner.nextInt();
                     System.out.print("Genre: ");
