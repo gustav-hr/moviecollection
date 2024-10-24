@@ -10,6 +10,7 @@ public class Main {
         System.out.println("Welcome to your movie collection");
         System.out.println("To add a movie type: add");
         System.out.println("To exit the program type: exit");
+        System.out.println("To see list of movies type: moviecollection");
 
 
         String userInput = "";
@@ -43,15 +44,20 @@ public class Main {
                     scanner.close();
 
                 }
+                case "moviecollection" -> {
+                    System.out.println(controller.seeMoviesAdded());
+                }
+
                 default -> {
                     System.out.println("Invalid input");
                 }
 
 
             }
-            System.out.println("\n" + controller.seeMoviesAdded());
+            //System.out.println("\n" + controller.seeMoviesAdded());
             System.out.println("\n" + "To add a movie type: add");
             System.out.println("To exit the program type: exit");
+            System.out.println("To see list of movies type: moviecollection");
         }
     }
 }
