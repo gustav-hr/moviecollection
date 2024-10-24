@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -53,6 +54,9 @@ public class Main {
                 }
                 case "moviecollection" -> {
                     System.out.println(controller.seeMoviesAdded());
+                }
+                case "search" -> {
+                    movieList.searchMovie(scanner.next());
                 }
 
                 default -> {
