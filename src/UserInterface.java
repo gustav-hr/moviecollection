@@ -1,9 +1,10 @@
+
 import java.util.Scanner;
 
 public class UserInterface {
 
     private final Controller controller;
-    private MovieCollection movieList;
+    private final MovieCollection movieList;
     private final Scanner scanner;
 
     public UserInterface() {
@@ -28,7 +29,19 @@ public class UserInterface {
             switch (userInput) {
                 case "add" -> addMovie();
                 case "list" -> System.out.println(controller.seeMoviesAdded());
-                case "search" -> searchMovie();
+                case "search" -> {
+                    System.out.println("Enter the title of the movie you wish to search for: ");
+                    scanner.nextLine();  // For at håndtere newline fra tidligere input
+                    String title = scanner.nextLine();
+                    controller.seeSearchResult(title);
+                    if (title != null) {
+                        System.out.println(controller.seeSearchResult(title));
+                    } else {
+                        System.out.println("Movie not found, try searching again");
+                    }
+                }
+
+
                 case "exit" -> exitProgram();
                 case "help" -> System.out.println(controller.helpProgram());
                 case "edit" -> editMovie();
@@ -39,7 +52,6 @@ public class UserInterface {
             System.out.println("If you need help, type: help.");
         }
     }
-
 
 
     // Metode til at tilføje en film
@@ -76,19 +88,6 @@ public class UserInterface {
 
         controller.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
         System.out.println("Movie added successfully.");
-    }
-
-    // Search Method
-    private void searchMovie() {
-        System.out.println("Enter the title of the movie you wish to search for:");
-        scanner.nextLine();  // For at håndtere newline fra tidligere input
-        String title = scanner.nextLine();
-
-        if (title != null) {
-            movieList.searchMovie(title);
-        } else {
-            System.out.println("Movie not found, try searching again");
-        }
     }
 
     // Method for exiting program
@@ -133,4 +132,3 @@ public class UserInterface {
 
     }
 }
-
