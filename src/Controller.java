@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 
 public class Controller {
@@ -24,14 +22,12 @@ public class Controller {
         return movies;
     }
 
-    public Movie seeSearchResult(String title){
-        for(Movie movie : movieList.getMovieList()) {
-
-            return movieList.searchMovie(title);
-        }
-        return null;
+    // Return a list of movies containing the search term in the title
+    public ArrayList<Movie> seeSearchResult(String title) {
+        return  movieList.searchMovies(title);
     }
     public String helpProgram(){
         return "\nTo add a movie type: add" + "\nTo exit the program type: exit";
     }
+
 }

@@ -15,14 +15,14 @@ public class MovieCollection {
         return movieList;
     }
 
-    public Movie searchMovie(String searchTitle) {
+    public ArrayList<Movie> searchMovies(String title) {
+        ArrayList<Movie> matchingMovies = new ArrayList<>();
         for (Movie movie : movieList) {
-            if (movie.getTitle().contains(searchTitle)) {
-                return movie;
-
+            if (movie.getTitle().toLowerCase().contains(title.toLowerCase())) {
+                matchingMovies.add(movie);
             }
         }
-        return null;
+        return matchingMovies;
     }
 
     public Movie editMovie(String movieTitle) {
