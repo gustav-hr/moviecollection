@@ -114,34 +114,41 @@ public class UserInterface {
     private void editMovie() {
         System.out.println(controller.seeMoviesAdded());
         System.out.println("Type out the title of the movie you want to edit");
-        Movie movieEdit = movieList.editMovie(scanner.next());
+
+        scanner.nextLine();
+
+        String movieTitle = scanner.nextLine();
+        Movie movieEdit = movieList.editMovie(movieTitle);
 
         if (movieEdit != null) {
             System.out.print("Title: ");
-            movieEdit.setTitle(scanner.next());
-            System.out.println("Director: ");
-            movieEdit.setDirector(scanner.next());
-            System.out.println("year: ");
+            movieEdit.setTitle(scanner.nextLine());
+
+            System.out.print("Director: ");
+            movieEdit.setDirector(scanner.nextLine());
+
+            System.out.print("year: ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a valid year");
                 scanner.next();
             }
-
             movieEdit.setYearCreated(scanner.nextInt());
-            System.out.println("Is the movie in color (yes/no): ");
+
+            System.out.print("Is the movie in color (yes/no): ");
             movieEdit.setIsInColor(scanner.next());
-            System.out.println("Length in minutes: ");
+
+            System.out.print("Length in minutes: ");
             while (!scanner.hasNextInt()) {
                 System.out.println("Invalid input. Please enter a valid time");
                 scanner.next();
             }
-
             movieEdit.setLengthInMinutes(scanner.nextInt());
-            System.out.println("Genre: ");
-            movieEdit.setGenre(scanner.next());
+
+            System.out.print("Genre: ");
+            scanner.nextLine();
+            movieEdit.setGenre(scanner.nextLine());
         } else {
             System.out.println("Movie not found, try edit again");
         }
-
     }
 }
