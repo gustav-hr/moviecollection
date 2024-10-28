@@ -126,6 +126,7 @@ class MovieCollectionTest {
         assertEquals("Sci-Fi/Thriller", movieToEdit.getGenre(), "The movie genre should be updated.");
 
     }*/
+
     @Test
     public void testEditMovie() {
         MovieCollection number2 = new MovieCollection();
