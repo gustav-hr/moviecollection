@@ -19,8 +19,8 @@ class MovieCollectionTest {
         Movie movie2 = new Movie("Kickass", "Jens Vejemann", 2010, "yes", 180, "Comedy");
 
 
-        MovieCollection.addMovie("Superbad", "Jens Vejemann", 2005, "yes", 150, "Comedy");
-        MovieCollection.addMovie("Kickass", "Jens Vejemann", 2010, "yes", 180, "Comedy");
+        MovieCollection.addMovie(movie1);
+        MovieCollection.addMovie(movie2);
 
         int actualSize = MovieCollection.getMovieList().size();
         int expectedSize = 2;
@@ -40,9 +40,9 @@ class MovieCollectionTest {
         Movie movie2 = new Movie("Transformers", "Michael Bay", 2007, "Yes", 144, "Action");
         Movie movie3 = new Movie("War Dogs", "Todd Philips", 2016, "Yes", 114, "Documentary");
 
-        no2.addMovie("Titanic", "Steven Siegal", 1997, "Yes", 195, "Romantic");
-        no3.addMovie("Transformers", "Michael Bay", 2007, "Yes", 144, "Action");
-        no3.addMovie("War Dogs", "Todd Philips", 2016, "Yes", 114, "Documentary");
+        no2.addMovie(movie1);
+        no3.addMovie(movie2);
+        no3.addMovie(movie3);
 
         // Assert - check if the actual val is equal to the expected val.
 
@@ -63,13 +63,20 @@ class MovieCollectionTest {
     void searchMovies() {
         MovieCollection number1 = new MovieCollection();
 
-        number1.addMovie("Batman Begins", "Christopher Nolan", 2005, "yes", 140, "Action");
-        number1.addMovie("The Dark Knight", "Christopher Nolan", 2008, "yes", 152, "Action");
-        number1.addMovie("The Dark Knight Rises", "Christopher Nolan", 2012, "yes", 165, "Action");
+        Movie movie1 = new Movie("Titanic", "Steven Siegal", 1997, "Yes", 195, "Romantic");
+        Movie movie2 = new Movie("Transformers", "Michael Bay", 2007, "Yes", 144, "Action");
+        Movie movie3 = new Movie("War Dogs", "Todd Philips", 2016, "Yes", 114, "Documentary");
 
-        ArrayList<Movie> searchResults = number1.searchMovies("Dark Knight");
+        number1.addMovie(movie1);
+        number1.addMovie(movie2);
+        number1.addMovie(movie3);
+
+        ArrayList<Movie> searchResults = number1.searchMovies("War");
 
         assertEquals(2, searchResults.size(), "The search should return exactly 2 movies.");
+        assertTrue(number1.getMovieList().contains(movie3));
+        assertFalse(number1.getMovieList().contains(movie2));
+        assertFalse(number1.getMovieList().contains(movie3));
 
 
     }
@@ -77,7 +84,10 @@ class MovieCollectionTest {
     @Test
     public void testEditMovie() {
         MovieCollection number2 = new MovieCollection();
-        number2.addMovie("Inception", "Christopher Nolan", 2010, "yes", 148, "Sci-Fi");
+
+        Movie movie3 = new Movie("War Dogs", "Todd Philips", 2016, "Yes", 114, "Documentary");
+
+        number2.addMovie(movie3);
         // edit the movie by finding it and updating its attributes.
         Movie movieToEdit = number2.editMovie("Inception");
         assertNotNull(movieToEdit, "The movie should be found for editing.");

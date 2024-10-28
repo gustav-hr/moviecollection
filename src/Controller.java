@@ -8,7 +8,8 @@ public class Controller {
     }
 
     public void addMovie(String title, String director, int yearCreated, String isInColor, int lengthInMinutes, String genre){
-        movieList.addMovie(title,director,yearCreated,isInColor,lengthInMinutes,genre);
+        Movie movie = new Movie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
+        movieList.addMovie(movie);
     }
 
     public String seeMoviesAdded() {
