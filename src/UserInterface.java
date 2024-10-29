@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -34,9 +35,6 @@ public class UserInterface {
                     System.out.println("Adding movie to your movie collection... \n");
 
                     System.out.print("Title: ");
-                    System.out.println("Adding movie to your movie collection... \n");
-
-                    System.out.print("Title: ");
                     scanner.nextLine();  //  resets scanner from earlier input
                     String title = scanner.nextLine();
 
@@ -44,9 +42,23 @@ public class UserInterface {
                     String director = scanner.nextLine();
 
                     System.out.print("Year: ");
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("Invalid input. Please enter a valid year");
-                        scanner.next();
+                    //first take without using exceptions:
+//                    while (!scanner.hasNextInt()) {
+//                        System.out.println("Invalid input. Please enter a valid year");
+//                        scanner.next();
+//                    }
+                    while(!scanner.hasNextInt()){
+                        String input = scanner.next();
+                        try {
+                            int yearCreated = Integer.parseInt(input);
+                        }
+                        catch (NumberFormatException nfe){
+                            System.out.println("Invalid input.");
+                            break;
+                        }
+                        finally {
+                            System.out.println("Enter valid year");
+                        }
                     }
                     int yearCreated = scanner.nextInt();
 
