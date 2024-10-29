@@ -30,5 +30,13 @@ public class Controller {
     public String helpProgram(){
         return "\nTo add a movie type: add" + "\nTo exit the program type: exit";
     }
+    public Movie editMovie(String movieTitle) {
+        for (Movie movie : movieList.getMovieList()) {
+            if (movie.getTitle().equalsIgnoreCase(movieTitle)) {
+                return movie;
 
+            }
+        }
+        return null;
+    }
 }

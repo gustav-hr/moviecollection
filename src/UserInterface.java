@@ -37,7 +37,7 @@ public class UserInterface {
                     System.out.println("Adding movie to your movie collection... \n");
 
                     System.out.print("Title: ");
-                    scanner.nextLine();  // handle newline from earlier input
+                    scanner.nextLine();  //  resets scanner from earlier input
                     String title = scanner.nextLine();
 
                     System.out.print("Director: ");
@@ -61,7 +61,7 @@ public class UserInterface {
                     int lengthInMinutes = scanner.nextInt();
 
                     System.out.print("Genre: ");
-                    scanner.nextLine();  // handles earlier input
+                    scanner.nextLine();  // resets scanner from earlier input
                     String genre = scanner.nextLine();
 
                     controller.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
@@ -118,7 +118,7 @@ public class UserInterface {
         scanner.nextLine();
 
         String movieTitle = scanner.nextLine();
-        Movie movieEdit = movieList.editMovie(movieTitle);
+        Movie movieEdit = controller.editMovie(movieTitle);
 
         if (movieEdit != null) {
             System.out.print("Title: ");
@@ -147,6 +147,7 @@ public class UserInterface {
             System.out.print("Genre: ");
             scanner.nextLine();
             movieEdit.setGenre(scanner.nextLine());
+            System.out.println("Movie updated successfully");
         } else {
             System.out.println("Movie not found, try edit again");
         }
