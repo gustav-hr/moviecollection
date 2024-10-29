@@ -8,6 +8,7 @@ public class UserInterface {
     private final Controller controller;
     private final MovieCollection movieList;
     private final Scanner scanner;
+    private boolean validInput = false;
 
     public UserInterface() {
         this.movieList = new MovieCollection();
@@ -24,6 +25,7 @@ public class UserInterface {
         System.out.println("To edit a movie from your list type: edit.");
         System.out.println("If you need help, type: help.");
         System.out.println("To exit the program type: exit.");
+
 
         String userInput = "";
         while (!userInput.equalsIgnoreCase("exit")) {
@@ -48,7 +50,7 @@ public class UserInterface {
 //                        scanner.next();
 //                    }
                     int yearCreated = 0;
-                    boolean validInput = false;
+
                     while (!validInput) {
                         try {
                             yearCreated = Integer.parseInt(scanner.next());
@@ -62,11 +64,17 @@ public class UserInterface {
                     String isInColor = scanner.next();
 
                     System.out.print("Length in minutes: ");
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("Invalid input. Please enter a valid time");
-                        scanner.next();
+                    int lengthInMinutes = 0;
+                    validInput = false;
+                    while (!validInput) {
+                        try {
+                            lengthInMinutes = Integer.parseInt(scanner.next());
+                            validInput = true;
+                        }
+                        catch (Exception e) {
+                            System.out.println("invalid input. Enter valid year");
+                        }
                     }
-                    int lengthInMinutes = scanner.nextInt();
 
                     System.out.print("Genre: ");
                     scanner.nextLine();  // resets scanner from earlier input
@@ -120,44 +128,63 @@ public class UserInterface {
 
 
     private void editMovie() {
+        String movieTitle = scanner.nextLine();
+        Movie movieEdit = controller.editMovie(movieTitle);
+
+        if (movieEdit != null) {
         System.out.println(controller.seeMoviesAdded());
         System.out.println("Type out the title of the movie you want to edit");
 
         scanner.nextLine();
 
-        String movieTitle = scanner.nextLine();
-        Movie movieEdit = controller.editMovie(movieTitle);
 
-        if (movieEdit != null) {
+
+
             System.out.print("Title: ");
             movieEdit.setTitle(scanner.nextLine());
 
             System.out.print("Director: ");
             movieEdit.setDirector(scanner.nextLine());
 
-            System.out.print("year: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Invalid input. Please enter a valid year");
-                scanner.next();
+
+            System.out.print("Year: ");
+            int yearCreated = 0;
+            validInput = false;
+            while (!validInput) {
+                try {
+                    yearCreated = Integer.parseInt(scanner.next());
+                    validInput = true;
+                    movieEdit.setYearCreated(yearCreated);
+                } catch (Exception e) {
+                    System.out.println("Invalid input. Enter valid Year:");
+                }
             }
-            movieEdit.setYearCreated(scanner.nextInt());
+            scanner.nextLine();
 
             System.out.print("Is the movie in color (yes/no): ");
             movieEdit.setIsInColor(scanner.next());
 
+
             System.out.print("Length in minutes: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Invalid input. Please enter a valid time");
-                scanner.next();
+            int lengthInMinutes;
+            validInput = false;
+            while (!validInput) {
+                try{
+                    lengthInMinutes = Integer.parseInt(scanner.next());
+                    validInput=true;
+                    movieEdit.setLengthInMinutes(lengthInMinutes);
+                }
+                catch (Exception e) {
+                    System.out.println("Invalid input. Please enter a valid time");
+                }
             }
-            movieEdit.setLengthInMinutes(scanner.nextInt());
 
             System.out.print("Genre: ");
             scanner.nextLine();
             movieEdit.setGenre(scanner.nextLine());
             System.out.println("Movie updated successfully");
         } else {
-            System.out.println("Movie not found, try edit again");
+            System.out.println("No movie found, either the movie doesn't exist or your movie collection is empty.");
         }
     }
 }
