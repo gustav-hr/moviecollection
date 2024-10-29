@@ -47,20 +47,16 @@ public class UserInterface {
 //                        System.out.println("Invalid input. Please enter a valid year");
 //                        scanner.next();
 //                    }
-                    while(!scanner.hasNextInt()){
-                        String input = scanner.next();
+                    int yearCreated = 0;
+                    boolean validInput = false;
+                    while (!validInput) {
                         try {
-                            int yearCreated = Integer.parseInt(input);
-                        }
-                        catch (NumberFormatException nfe){
-                            System.out.println("Invalid input.");
-                            break;
-                        }
-                        finally {
-                            System.out.println("Enter valid year");
+                            yearCreated = Integer.parseInt(scanner.next());
+                            validInput = true;
+                        } catch (Exception e) {
+                            System.out.println("Invalid input. Enter valid Year:");
                         }
                     }
-                    int yearCreated = scanner.nextInt();
 
                     System.out.print("Is the movie in color (yes/no): ");
                     String isInColor = scanner.next();
