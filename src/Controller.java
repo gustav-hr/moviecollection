@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -38,5 +39,8 @@ public class Controller {
             }
         }
         return null;
+    }
+    public boolean deleteMovie(String title) {
+        return movieList.deleteMovie(title);
     }
 }

@@ -1,4 +1,5 @@
 
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -118,6 +119,7 @@ public class UserInterface {
 
                 //To edit a movie
                 case "edit" -> editMovie();
+                case "delete" -> deleteMovie();
                 default -> System.out.println("Invalid input");
             }
             System.out.println("\nTo add a movie type: add");
@@ -132,10 +134,10 @@ public class UserInterface {
         Movie movieEdit = controller.editMovie(movieTitle);
 
         if (movieEdit != null) {
-        System.out.println(controller.seeMoviesAdded());
-        System.out.println("Type out the title of the movie you want to edit");
+            System.out.println(controller.seeMoviesAdded());
+            System.out.println("Type out the title of the movie you want to edit");
 
-        scanner.nextLine();
+            scanner.nextLine();
 
 
 
@@ -187,4 +189,18 @@ public class UserInterface {
             System.out.println("No movie found, either the movie doesn't exist or your movie collection is empty.");
         }
     }
+    private void deleteMovie() {
+        System.out.println("Enter the title of the movie you wish to delete: ");
+        scanner.nextLine();  // Håndter newline fra tidligere input
+        String title = scanner.nextLine();
+
+        if (controller.deleteMovie(title)) {
+            System.out.println("Movie: '" + title + "' deleted successfully.");
+        } else {
+            System.out.println("Movie not found, deletion failed.");
+        }
+    }
 }
+
+
+

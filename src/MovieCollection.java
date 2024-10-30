@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class MovieCollection {
@@ -29,6 +30,16 @@ public class MovieCollection {
             }
         }
         return null;
+    }
+
+    public boolean deleteMovie(String title) {
+        for (Movie movie : movieList) {
+            if (movie.getTitle().equalsIgnoreCase(title)) {
+                movieList.remove(movie);
+                return true; // Filmen blev fundet og slettet
+            }
+        }
+        return false; // Ingen film blev fundet med den angivne titel
     }
 
 }
