@@ -19,6 +19,7 @@ public class UserInterface {
 
     // Start of program and first prompt to user.
     public void startProgram() {
+        System.out.println("mib mob");
         System.out.println("Welcome to your movie collection.");
         System.out.println("To add a movie type: add.");
         System.out.println("To see your list of movies in its current state type: list.");
