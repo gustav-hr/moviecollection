@@ -1,5 +1,6 @@
 
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class UserInterface {
     }
 
     // Start of program and first prompt to user.
-    public void startProgram() {
+    public void startProgram() throws FileNotFoundException {
         System.out.println("Welcome to your movie collection.");
         System.out.println("To add a movie type: add.");
         System.out.println("To see your list of movies in its current state type: list.");
@@ -89,7 +90,6 @@ public class UserInterface {
                 //To see the movie list as it is
                 case "list" -> System.out.println(controller.seeMoviesAdded());
 
-
                 //to search for a movie
                 case "search" -> {
                     System.out.println("Enter the title of the movie you wish to search for: ");
@@ -110,6 +110,7 @@ public class UserInterface {
                 //To exit the program
                 case "exit" -> {
                     System.out.println("Exiting the program...");
+                    movieList.saveMovieCollection();
                     scanner.close();
                     System.exit(0);
                 }
@@ -120,7 +121,11 @@ public class UserInterface {
                 //To edit a movie
                 case "edit" -> editMovie();
                 case "delete" -> deleteMovie();
+                case "save" -> movieList.saveMovieCollection();
+                case "load" -> movieList.loadMovieCollection();
                 default -> System.out.println("Invalid input");
+
+
             }
             System.out.println("\nTo add a movie type: add");
             System.out.println("To exit the program type: exit");

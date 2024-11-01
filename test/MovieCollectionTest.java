@@ -59,27 +59,6 @@ class MovieCollectionTest {
         assertEquals(expectedSize3, actualSize3);
     }
 
-    /*@Test
-    void searchMovies() {
-        MovieCollection number1 = new MovieCollection();
-
-        Movie movie1 = new Movie("Titanic", "Steven Siegal", 1997, "Yes", 195, "Romantic");
-        Movie movie2 = new Movie("Transformers", "Michael Bay", 2007, "Yes", 144, "Action");
-        Movie movie3 = new Movie("War Dogs", "Todd Philips", 2016, "Yes", 114, "Documentary");
-
-        number1.addMovie(movie1);
-        number1.addMovie(movie2);
-        number1.addMovie(movie3);
-
-        ArrayList<Movie> searchResults = number1.searchMovies("War");
-
-        assertEquals(2, searchResults.size(), "The search should return exactly 2 movies.");
-        assertTrue(number1.getMovieList().contains(movie3));
-        assertFalse(number1.getMovieList().contains(movie2));
-        assertFalse(number1.getMovieList().contains(movie3));
-
-
-    }*/
 
     @Test
     void searchMovies() {
@@ -100,33 +79,6 @@ class MovieCollectionTest {
     }
 
 
-    /*@Test
-    public void testEditMovie() {
-        MovieCollection number2 = new MovieCollection();
-
-        Movie movie3 = new Movie("War Dogs", "Todd Philips", 2016, "Yes", 114, "Documentary");
-
-        number2.addMovie(movie3);
-        // edit the movie by finding it and updating its attributes.
-        Movie movieToEdit = number2.editMovie("Inception");
-        assertNotNull(movieToEdit, "The movie should be found for editing.");
-        // Update the information about the movie.
-        movieToEdit.setTitle("Inception 2");
-        movieToEdit.setDirector("Nolan Christopher");
-        movieToEdit.setYearCreated(2025);
-        movieToEdit.setIsInColor("no");
-        movieToEdit.setLengthInMinutes(160);
-        movieToEdit.setGenre("Sci-Fi/Thriller");
-        // Check if the movie information is updated correctly.
-        assertEquals("Inception 2", movieToEdit.getTitle(), "The movie title should be updated.");
-        assertEquals("Nolan Christopher", movieToEdit.getDirector(), "The movie director should be updated.");
-        assertEquals(2025, movieToEdit.getYearCreated(), "The movie year should be updated.");
-        assertEquals("no", movieToEdit.getIsInColor(), "The movie color status should be updated.");
-        assertEquals(160, movieToEdit.getLengthInMinutes(), "The movie length should be updated.");
-        assertEquals("Sci-Fi/Thriller", movieToEdit.getGenre(), "The movie genre should be updated.");
-
-    }*/
-
 
     @Test
     public void testEditMovie() {
@@ -137,6 +89,7 @@ class MovieCollectionTest {
 
         // Edit the movie by finding it and updating its attributes
         Movie movieToEdit = number2.editMovie("Inception");
+        //TODO gustav skal lige fikse så der ikke står assertnotnull
         assertNotNull(movieToEdit, "The movie should be found for editing.");
 
         // Update the movie's information
