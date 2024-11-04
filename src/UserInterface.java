@@ -134,14 +134,15 @@ public class UserInterface {
 
 
     private void editMovie() {
+        scanner.nextLine();
+        System.out.println(controller.seeMoviesAdded());
+        System.out.println("Type out the title of the movie you want to edit ");
+
         String movieTitle = scanner.nextLine();
         Movie movieEdit = controller.editMovie(movieTitle);
 
         if (movieEdit != null) {
-            System.out.println(controller.seeMoviesAdded());
-            System.out.println("Type out the title of the movie you want to edit");
 
-            scanner.nextLine();
 
             System.out.print("Title: ");
             movieEdit.setTitle(scanner.nextLine());
