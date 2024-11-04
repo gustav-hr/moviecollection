@@ -43,7 +43,7 @@ public class Movie {
     public String getGenre() {
         return genre;
     }
-
+//tester tester
 
     //Setters
     public void setTitle(String title) {
