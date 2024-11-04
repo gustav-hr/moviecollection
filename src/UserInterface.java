@@ -1,8 +1,4 @@
-
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -19,7 +15,7 @@ public class UserInterface {
     }
 
     // Start of program and first prompt to user.
-    public void startProgram() throws FileNotFoundException {
+    public void startProgram() {
         System.out.println("Welcome to your movie collection.");
         System.out.println("To add a movie type: add.");
         System.out.println("To see your list of movies in its current state type: list.");
@@ -72,8 +68,7 @@ public class UserInterface {
                         try {
                             lengthInMinutes = Integer.parseInt(scanner.next());
                             validInput = true;
-                        }
-                        catch (Exception e) {
+                        } catch (Exception e) {
                             System.out.println("invalid input. Enter valid year");
                         }
                     }
@@ -116,17 +111,24 @@ public class UserInterface {
                 }
 
                 //displays menu options again
-                case "help" -> System.out.println(controller.helpProgram());
+                case "help" -> {
+                    System.out.println("To save your list to your moviecollection, write 'save'." +
+                            "\nTo delete a movie, write 'delete' followed by the title of the movie you want to delete." +
+                            "\nTo load a (or multiple) movies from your moviecollection, write 'load'.");
 
-                //To edit a movie
-                case "edit" -> editMovie();
-                case "delete" -> deleteMovie();
-                case "save" -> movieList.saveMovieCollection();
-                case "load" -> movieList.loadMovieCollection();
-                default -> System.out.println("Invalid input");
+                }
+
+                case "edit" -> editMovie(); // The code for editing a movie.
+                case "delete" -> deleteMovie(); // the code for deleting a movie.
+                case "save" -> movieList.saveMovieCollection(); // The code for saving a movie.
+                case "load" ->
+                        movieList.loadMovieCollection(); // The code for loading a movie from the moviecollection.txt file.
+                default ->
+                        System.out.println("Invalid input"); // The default setting is invalid input. If the program can not recognize whatever input comes from the user, this will be the output.
 
 
             }
+            // This will be printed almost no matter what code you enter.
             System.out.println("\nTo add a movie type: add");
             System.out.println("To exit the program type: exit");
             System.out.println("If you need help, type: help.");
@@ -144,15 +146,11 @@ public class UserInterface {
 
             scanner.nextLine();
 
-
-
-
             System.out.print("Title: ");
             movieEdit.setTitle(scanner.nextLine());
 
             System.out.print("Director: ");
             movieEdit.setDirector(scanner.nextLine());
-
 
             System.out.print("Year: ");
             int yearCreated = 0;
@@ -171,17 +169,15 @@ public class UserInterface {
             System.out.print("Is the movie in color (yes/no): ");
             movieEdit.setIsInColor(scanner.next());
 
-
             System.out.print("Length in minutes: ");
             int lengthInMinutes;
             validInput = false;
             while (!validInput) {
-                try{
+                try {
                     lengthInMinutes = Integer.parseInt(scanner.next());
-                    validInput=true;
+                    validInput = true;
                     movieEdit.setLengthInMinutes(lengthInMinutes);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a valid time");
                 }
             }
@@ -194,6 +190,7 @@ public class UserInterface {
             System.out.println("No movie found, either the movie doesn't exist or your movie collection is empty.");
         }
     }
+
     private void deleteMovie() {
         System.out.println("Enter the title of the movie you wish to delete: ");
         scanner.nextLine();  // Håndter newline fra tidligere input
