@@ -115,7 +115,6 @@ public class UserInterface {
                     System.out.println("To save your list to your moviecollection, write 'save'." +
                             "\nTo delete a movie, write 'delete' followed by the title of the movie you want to delete." +
                             "\nTo load a (or multiple) movies from your moviecollection, write 'load'.");
-
                 }
 
                 case "edit" -> editMovie(); // The code for editing a movie.
