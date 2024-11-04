@@ -117,13 +117,11 @@ public class UserInterface {
                             "\nTo load a (or multiple) movies from your moviecollection, write 'load'.");
                 }
 
-                case "edit" -> editMovie(); // The code for editing a movie.
+                case "edit"   -> editMovie(); // The code for editing a movie.
                 case "delete" -> deleteMovie(); // the code for deleting a movie.
-                case "save" -> movieList.saveMovieCollection(); // The code for saving a movie.
-                case "load" ->
-                        movieList.loadMovieCollection(); // The code for loading a movie from the moviecollection.txt file.
-                default ->
-                        System.out.println("Invalid input"); // The default setting is invalid input. If the program can not recognize whatever input comes from the user, this will be the output.
+                case "save"   -> movieList.saveMovieCollection(); // The code for saving a movie.
+                case "load"   -> movieList.loadMovieCollection(); // The code for loading a movie from the moviecollection.txt file.
+                default       -> System.out.println("Invalid input"); // The default setting is invalid input. If the program can not recognize whatever input comes from the user, this will be the output.
 
 
             }
@@ -200,6 +198,7 @@ public class UserInterface {
         } else {
             System.out.println("Movie not found, deletion failed.");
         }
+        //tester tester
     }
 }
 
