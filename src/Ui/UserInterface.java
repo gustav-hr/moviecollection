@@ -1,3 +1,9 @@
+package Ui;
+
+import Rest.Controller;
+import Rest.Movie;
+import Rest.MovieCollection;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -78,7 +84,7 @@ public class UserInterface {
                     String genre = scanner.nextLine();
 
                     controller.addMovie(title, director, yearCreated, isInColor, lengthInMinutes, genre);
-                    System.out.println("Movie added successfully.");
+                    System.out.println("Rest.Movie added successfully.");
 
                 }
 
@@ -183,7 +189,7 @@ public class UserInterface {
             System.out.print("Genre: ");
             scanner.nextLine();
             movieEdit.setGenre(scanner.nextLine());
-            System.out.println("Movie updated successfully");
+            System.out.println("Rest.Movie updated successfully");
         } else {
             System.out.println("No movie found, either the movie doesn't exist or your movie collection is empty.");
         }
@@ -195,12 +201,16 @@ public class UserInterface {
         String title = scanner.nextLine();
 
         if (controller.deleteMovie(title)) {
-            System.out.println("Movie: '" + title + "' deleted successfully.");
+            System.out.println("Rest.Movie: '" + title + "' deleted successfully.");
         } else {
-            System.out.println("Movie not found, deletion failed.");
+            System.out.println("Rest.Movie not found, deletion failed.");
         }
-        //tester tester
     }
+
+
+
+
+
 }
 
 

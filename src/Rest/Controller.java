@@ -1,3 +1,4 @@
+package Rest;
 
 import java.util.ArrayList;
 
@@ -46,5 +47,4 @@ public class Controller {
     public boolean deleteMovie(String title) {
         return movieList.deleteMovie(title);
     }
-    //tester tester
 }

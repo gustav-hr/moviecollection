@@ -1,7 +1,9 @@
+package Rest;
 
+import java.util.Comparator;
 
+public class Movie implements Comparator<Movie> {
 
-public class Movie {
     private String title;
     private String director;
     private int yearCreated;
@@ -43,7 +45,7 @@ public class Movie {
     public String getGenre() {
         return genre;
     }
-//tester tester
+
 
     //Setters
     public void setTitle(String title) {
@@ -78,4 +80,8 @@ public class Movie {
                 + "\n ---------------------------- \n";
     }
 
+    @Override
+    public int compare(Movie o1, Movie o2) {
+        return 0;
+    }
 }
