@@ -1,5 +1,3 @@
-package Rest;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -49,7 +47,7 @@ public class MovieCollection {
     }
 
     public void saveMovieCollection() {
-        try (PrintStream output = new PrintStream("Rest.MovieCollection.txt")) {
+        try (PrintStream output = new PrintStream("MovieCollection.txt")) {
             for (Movie movie : movieList) {
                 output.println(movie.getTitle());
                 output.println(movie.getDirector());
@@ -65,7 +63,7 @@ public class MovieCollection {
     }
 
     public void loadMovieCollection() {
-        File file = new File("Rest.MovieCollection.txt");
+        File file = new File("MovieCollection.txt");
         Scanner scan;
         movieList.clear();
         try {
@@ -91,7 +89,7 @@ public class MovieCollection {
                 }
             }
             scan.close();
-            System.out.println("Rest.Movie collection loaded successfully.");
+            System.out.println("Movie collection loaded successfully.");
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File not found: " + e.getMessage());
         } catch (InputMismatchException | NumberFormatException e) {

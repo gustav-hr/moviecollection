@@ -1,5 +1,3 @@
-package Rest;
-
 import java.util.Comparator;
 
 public class Movie implements Comparator<Movie> {

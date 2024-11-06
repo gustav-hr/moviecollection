@@ -1,5 +1,3 @@
-import Rest.Movie;
-import Rest.MovieCollection;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -126,7 +124,7 @@ class MovieCollectionTest {
         movieCollection.addMovie(movie2);
         movieCollection.saveMovieCollection();
 
-        File file = new File("Rest.MovieCollection.txt");
+        File file = new File("MovieCollection.txt");
 
         // Assert - check that the file exists
         assertTrue(file.exists(), "The movie collection file should exist after saving.");
@@ -185,7 +183,7 @@ class MovieCollectionTest {
         movieCollection.addMovie(movie1);
         movieCollection.saveMovieCollection();
 
-        File file = new File("Rest.MovieCollection.txt");
+        File file = new File("MovieCollection.txt");
 
         // Read the content of the file after initial save
         String initialContent = "";

@@ -1,7 +1,3 @@
-package Comparators;
-
-import Rest.Movie;
-
 import java.util.Comparator;
 
 public class YearComparator implements Comparator<Movie> {
