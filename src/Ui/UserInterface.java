@@ -1,10 +1,13 @@
 package Ui;
 
+import Comparators.*;
 import Rest.Controller;
 import Rest.Movie;
 import Rest.MovieCollection;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -88,6 +91,71 @@ public class UserInterface {
 
                 }
 
+                // How to sort the movies in two different variables. ( User stories 13-15 ).
+
+                case "sort" -> {
+                    System.out.println("How do you want to sort your movies?" +
+                            "\n Please choose 2 variables in the order you want the movie collection to be sorted." +
+                            "\n Your options are: Title, year, length, genre, color, director.");
+
+                    Comparator comparator1 = null;
+
+                    String comparatorInput1 = scanner.next();
+
+                    switch (comparatorInput1.toLowerCase()) {
+                        case "title" -> {
+                            comparator1 = new TitleComparator();
+                        }
+                        case "year" -> {
+                            comparator1 = new YearComparator();
+                        }
+                        case "length" -> {
+                            comparator1 = new LengthComparator();
+                        }
+                        case "color" -> {
+                            comparator1 = new ColorComparator();
+                        }
+                        case "genre" -> {
+                            comparator1 = new GenreComparator();
+                        }
+                        case "director" -> {
+                            comparator1 = new DirectorComparator();
+                        }
+                    }
+                     // The second variable.
+
+                    Comparator comparator2 = null;
+
+                    String comparatorInput2 = scanner.next();
+
+                    switch(comparatorInput2.toLowerCase()) {
+                        case "title" -> {
+                            comparator2 = new TitleComparator();
+                        }
+                        case "year" -> {
+                            comparator2 = new YearComparator();
+                        }
+                        case "length" -> {
+                            comparator2 = new LengthComparator();
+                        }
+                        case "color" -> {
+                            comparator2 = new ColorComparator();
+                        }
+                        case "genre" -> {
+                            comparator2 = new GenreComparator();
+                        }
+                        case "director" -> {
+                            comparator2 = new DirectorComparator();
+                        }
+                    }
+
+                    Collections.sort(movieList.getMovieList(), comparator1.thenComparing(comparator2));
+                    System.out.println("Here is the sorted list: \n"+ controller.seeMoviesAdded());
+
+                }
+
+
+
                 //To see the movie list as it is
                 case "list" -> System.out.println(controller.seeMoviesAdded());
 
@@ -123,11 +191,13 @@ public class UserInterface {
                             "\nTo load a (or multiple) movies from your moviecollection, write 'load'.");
                 }
 
-                case "edit"   -> editMovie(); // The code for editing a movie.
+                case "edit" -> editMovie(); // The code for editing a movie.
                 case "delete" -> deleteMovie(); // the code for deleting a movie.
-                case "save"   -> movieList.saveMovieCollection(); // The code for saving a movie.
-                case "load"   -> movieList.loadMovieCollection(); // The code for loading a movie from the moviecollection.txt file.
-                default       -> System.out.println("Invalid input"); // The default setting is invalid input. If the program can not recognize whatever input comes from the user, this will be the output.
+                case "save" -> movieList.saveMovieCollection(); // The code for saving a movie.
+                case "load" ->
+                        movieList.loadMovieCollection(); // The code for loading a movie from the moviecollection.txt file.
+                default ->
+                        System.out.println("Invalid input"); // The default setting is invalid input. If the program can not recognize whatever input comes from the user, this will be the output.
 
 
             }
@@ -207,11 +277,15 @@ public class UserInterface {
         }
     }
 
-
-
-
-
 }
+
+
+
+
+
+
+
+
 
 
 
