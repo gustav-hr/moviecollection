@@ -41,6 +41,9 @@ public class Controller {
         }
         return null;
     }
+    public ArrayList<Movie> seeMovieList() {
+        return movieList.getMovieList();
+    }
 
     public boolean deleteMovie(String title) {
         return movieList.deleteMovie(title);

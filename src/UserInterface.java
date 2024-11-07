@@ -82,66 +82,69 @@ public class UserInterface {
                 // How to sort the movies in two different variables. ( User stories 13-15 ).
 
                 case "sort" -> {
-                    System.out.println("How do you want to sort your movies?" +
-                            "\n Please choose 2 variables in the order you want the movie collection to be sorted." +
-                            "\n Your options are: Title, year, length, genre, color, director.");
+                    if (!controller.seeMovieList().isEmpty()) {
+                        System.out.println("How do you want to sort your movies?" +
+                                "\n Please choose up to 2 variables in the order you want the movie collection to be sorted." +
+                                "\n Your options are: Title, year, length, genre, color, director.\nIf you want to sort with only one variable. Please type the variable twice with ENTER in between");
 
-                    Comparator comparator1 = null;
+                        Comparator comparator1 = null;
 
-                    String comparatorInput1 = scanner.next();
+                        String comparatorInput1 = scanner.next();
 
-                    switch (comparatorInput1.toLowerCase()) {
-                        case "title" -> {
-                            comparator1 = new TitleComparator();
+                        switch (comparatorInput1.toLowerCase()) {
+                            case "title" -> {
+                                comparator1 = new TitleComparator();
+                            }
+                            case "year" -> {
+                                comparator1 = new YearComparator();
+                            }
+                            case "length" -> {
+                                comparator1 = new LengthComparator();
+                            }
+                            case "color" -> {
+                                comparator1 = new ColorComparator();
+                            }
+                            case "genre" -> {
+                                comparator1 = new GenreComparator();
+                            }
+                            case "director" -> {
+                                comparator1 = new DirectorComparator();
+                            }
                         }
-                        case "year" -> {
-                            comparator1 = new YearComparator();
+                        // The second variable.
+
+                        Comparator comparator2 = null;
+
+                        String comparatorInput2 = scanner.next();
+
+                        switch (comparatorInput2.toLowerCase()) {
+                            case "title" -> {
+                                comparator2 = new TitleComparator();
+                            }
+                            case "year" -> {
+                                comparator2 = new YearComparator();
+                            }
+                            case "length" -> {
+                                comparator2 = new LengthComparator();
+                            }
+                            case "color" -> {
+                                comparator2 = new ColorComparator();
+                            }
+                            case "genre" -> {
+                                comparator2 = new GenreComparator();
+                            }
+                            case "director" -> {
+                                comparator2 = new DirectorComparator();
+                            }
                         }
-                        case "length" -> {
-                            comparator1 = new LengthComparator();
-                        }
-                        case "color" -> {
-                            comparator1 = new ColorComparator();
-                        }
-                        case "genre" -> {
-                            comparator1 = new GenreComparator();
-                        }
-                        case "director" -> {
-                            comparator1 = new DirectorComparator();
-                        }
+
+                        Collections.sort(movieList.getMovieList(), comparator1.thenComparing(comparator2));
+                        System.out.println("Here is the sorted list: \n" + controller.seeMoviesAdded());
+
+                    } else {
+                        System.out.println("No movies to sort!");
                     }
-                     // The second variable.
-
-                    Comparator comparator2 = null;
-
-                    String comparatorInput2 = scanner.next();
-
-                    switch(comparatorInput2.toLowerCase()) {
-                        case "title" -> {
-                            comparator2 = new TitleComparator();
-                        }
-                        case "year" -> {
-                            comparator2 = new YearComparator();
-                        }
-                        case "length" -> {
-                            comparator2 = new LengthComparator();
-                        }
-                        case "color" -> {
-                            comparator2 = new ColorComparator();
-                        }
-                        case "genre" -> {
-                            comparator2 = new GenreComparator();
-                        }
-                        case "director" -> {
-                            comparator2 = new DirectorComparator();
-                        }
-                    }
-
-                    Collections.sort(movieList.getMovieList(), comparator1.thenComparing(comparator2));
-                    System.out.println("Here is the sorted list: \n"+ controller.seeMoviesAdded());
-
                 }
-
 
 
                 //To see the movie list as it is
