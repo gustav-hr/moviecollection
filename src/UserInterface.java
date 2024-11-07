@@ -177,25 +177,31 @@ public class UserInterface {
 
                 //displays menu options again
                 case "help" -> {
-                    System.out.println("To save your list to your moviecollection, write 'save'." +
-                            "\nTo delete a movie, write 'delete' followed by the title of the movie you want to delete." +
-                            "\nTo load a (or multiple) movies from your moviecollection, write 'load'.");
+                    System.out.println(controller.helpProgram());
                 }
 
                 case "edit" -> editMovie(); // The code for editing a movie.
                 case "delete" -> deleteMovie(); // the code for deleting a movie.
-                case "save" -> movieList.saveMovieCollection(); // The code for saving a movie.
+                case "save" -> {
+                    if (!controller.seeMovieList().isEmpty()) {
+                        controller.saveMovielistToFile(); // The code for saving a movie.
+                        System.out.println("Movie collection saved successfully");
+                    } else {
+                        System.out.println("No movies to save...");
+                    }
+                }
                 case "load" ->
-                        movieList.loadMovieCollection(); // The code for loading a movie from the moviecollection.txt file.
+                        controller.loadMovieListFromFile(); // The code for loading a movie from the moviecollection.txt file.
                 default ->
                         System.out.println("Invalid input"); // The default setting is invalid input. If the program can not recognize whatever input comes from the user, this will be the output.
 
 
             }
             // This will be printed almost no matter what code you enter.
-            System.out.println("\nTo add a movie type: add");
-            System.out.println("To exit the program type: exit");
+            System.out.println("\nTo add a movie type: add.");
+            System.out.println("To exit the program type: exit.");
             System.out.println("If you need help, type: help.");
+
         }
     }
 

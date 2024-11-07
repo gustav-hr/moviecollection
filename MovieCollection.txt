@@ -1,28 +1,7 @@
-Batman
-Christoffer Nolen
+titanic
 1997
+2002
 yes
-200
-Action
-----------------------------
-Batman
-Christoffer Nolen
-2008
-no
-170
-Action
-----------------------------
-Titanic
-hej hej
-2009
-yes
-190
+1
 horror
-----------------------------
-Titanic
-Seb Kuss
-20002
-yes
-81
-ha
 ----------------------------

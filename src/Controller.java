@@ -29,7 +29,9 @@ public class Controller {
     }
 
     public String helpProgram() {
-        return "\nTo add a movie type: add" + "\nTo exit the program type: exit";
+        return "\nTo sort your movie list, type: sort." +
+                "\nTo see your movie list, type: list." +
+                "\nTo search within your movie collection, type: search.";
     }
 
     public Movie editMovie(String movieTitle) {
@@ -40,6 +42,12 @@ public class Controller {
             }
         }
         return null;
+    }
+    public void saveMovielistToFile(){
+        movieList.saveMovieCollection();
+    }
+    public void loadMovieListFromFile(){
+        movieList.loadMovieCollection();
     }
     public ArrayList<Movie> seeMovieList() {
         return movieList.getMovieList();
