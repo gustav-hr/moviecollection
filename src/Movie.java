@@ -1,6 +1,4 @@
-import java.util.Comparator;
-
-public class Movie implements Comparator<Movie> {
+public class Movie{
 
     private String title;
     private String director;
@@ -71,15 +69,10 @@ public class Movie implements Comparator<Movie> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Title: " + getTitle() + "\nDirector: " + getDirector()
                 + "\nYear created: " + getYearCreated() + "\nIs in color? : "
                 + getIsInColor() + "\nLength in minutes: " + getLengthInMinutes() + "\nGenre: " + getGenre()
                 + "\n ---------------------------- \n";
-    }
-
-    @Override
-    public int compare(Movie o1, Movie o2) {
-        return 0;
     }
 }

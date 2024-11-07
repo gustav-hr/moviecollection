@@ -6,12 +6,11 @@ import java.util.Scanner;
 public class UserInterface {
 
     private final Controller controller;
-    private final MovieCollection movieList;
     private final Scanner scanner;
     private boolean validInput = false;
 
     public UserInterface() {
-        this.movieList = new MovieCollection();
+        MovieCollection movieList = new MovieCollection();
         this.controller = new Controller(movieList);
         this.scanner = new Scanner(System.in);
     }
@@ -138,7 +137,7 @@ public class UserInterface {
                             }
                         }
 
-                        Collections.sort(movieList.getMovieList(), comparator1.thenComparing(comparator2));
+                        Collections.sort(controller.seeMovieList(), comparator1.thenComparing(comparator2));
                         System.out.println("Here is the sorted list: \n" + controller.seeMoviesAdded());
 
                     } else {
@@ -170,7 +169,7 @@ public class UserInterface {
                 //To exit the program
                 case "exit" -> {
                     System.out.println("Exiting the program...");
-                    movieList.saveMovieCollection();
+                    controller.saveMovielistToFile();
                     scanner.close();
                     System.exit(0);
                 }

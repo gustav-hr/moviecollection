@@ -55,7 +55,7 @@ public class MovieCollection {
                 output.println(movie.getIsInColor());
                 output.println(movie.getLengthInMinutes());
                 output.println(movie.getGenre());
-                output.println("----------------------------"); // Optional separator
+                output.println("----------------------------"); // separator
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException("File could not be created: " + e.getMessage());
@@ -72,6 +72,7 @@ public class MovieCollection {
                 // Remove label parts and extract the actual values
                 // The use of "replace" can be seen in the .txt. This means that we won't see the "title" before the name of the movie.
                 // Easiest to see under the txt file how it works.
+                //Replace method found on: https://w3schools.com/java/ref_string_replace.asp
                 String title = scan.nextLine().replace("Title: ", "").trim();
                 String director = scan.nextLine().replace("Director: ", "").trim();
                 int yearCreated = Integer.parseInt(scan.nextLine().replace("Year created: ", "").trim());

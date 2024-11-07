@@ -1,7 +1,28 @@
-titanic
-1997
-2002
+Batman the dark knight returns
+Christoffer Nolen
+2005
 yes
-1
-horror
+148
+Action
+----------------------------
+Devil wears Prada
+Harold Ramis
+2006
+yes
+109
+Drama
+----------------------------
+Groundhog Day
+Harold Ramis
+1993
+yes
+101
+romcom
+----------------------------
+D-day
+Nolan 
+2013
+yes
+180
+drama
 ----------------------------
