@@ -1,3 +1,5 @@
+package Rest;
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -43,12 +45,15 @@ public class Controller {
         }
         return null;
     }
-    public void saveMovielistToFile(){
+
+    public void saveMovielistToFile() {
         movieList.saveMovieCollection();
     }
-    public void loadMovieListFromFile(){
+
+    public void loadMovieListFromFile() {
         movieList.loadMovieCollection();
     }
+
     public ArrayList<Movie> seeMovieList() {
         return movieList.getMovieList();
     }

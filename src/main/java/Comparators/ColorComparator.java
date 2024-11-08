@@ -1,3 +1,7 @@
+package Comparators;
+
+import Rest.Movie;
+
 import java.util.Comparator;
 
 public class ColorComparator implements Comparator<Movie> {

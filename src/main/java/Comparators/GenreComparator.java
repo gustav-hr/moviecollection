@@ -1,3 +1,7 @@
+package Comparators;
+
+import Rest.Movie;
+
 import java.util.Comparator;
 
 public class GenreComparator implements Comparator<Movie> {
