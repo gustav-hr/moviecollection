@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
-
+//hej
 public class UserInterface {
 
     private final Controller controller;
@@ -266,6 +266,7 @@ public class UserInterface {
             System.out.println("No movie found, either the movie doesn't exist or your movie collection is empty.");
         }
     }
+
 
     private void deleteMovie() {
         System.out.println("Enter the title of the movie you wish to delete: ");
